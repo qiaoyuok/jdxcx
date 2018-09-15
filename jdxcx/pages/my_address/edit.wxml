@@ -1,0 +1,33 @@
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <view class='item'>
+      <label>
+        <text>* </text>姓名</label>
+      <input name="realname" placeholder="请输入姓名" value="{{realname}}"/>
+    </view>
+    <view class='item'>
+      <label>
+        <text>* </text>手机</label>
+      <input name="tel" placeholder="请输入手机号" value="{{tel}}"/>
+    </view>
+    <view class='item address'>
+      <label>
+        <text>* </text>地址</label>
+      <view class='address-item'>
+        <view class='choose-address' bindtap='chooseadd'>
+          <view class='image'>
+            <image src='/images/address.png'></image>
+          </view>
+          <input class='detail-address' name="name" disabled="true" value='{{name}}' />
+          <view class='image'>
+            <image src='/images/right.png'></image>
+          </view>
+        </view>
+        <input name="detail" class='detail' value="{{detail}}" placeholder="详细地址,小区,门牌号" />
+      </view>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">提交</button>
+    </view>
+  </form>
+</view>

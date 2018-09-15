@@ -1,0 +1,478 @@
+/**app.wxss**/
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 10rpx; */
+  box-sizing: border-box;
+  /* background-color: #eee; */
+}
+button{
+  line-height: 100%;
+  padding-bottom: 0;
+  margin: 0;
+  background: none;
+  border-radius: 15rpx;
+  font-size: none;
+  box-sizing: none;
+  overflow: none;
+  text-align: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+button::after {
+  border: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  list-style: none;
+}
+
+/* 维修列表start */
+
+.fixed-list {
+  width: 100%;
+  /* height: 180rpx; */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 5rpx;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 10rpx;
+  flex-wrap: wrap;
+}
+
+.fixed-list .fixed-list-headerpic {
+  width: 170rpx;
+  height: 170rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed-list .fixed-list-headerpic image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+}
+
+.fixed-list .fixed-list-info {
+  /* height: 180rpx; */
+  flex-grow: 1;
+  padding: 5rpx 10rpx;
+  box-sizing: border-box;
+  /* background: green; */
+}
+.fixed_address{
+  display: flex;
+}
+.fixed_address{
+  width: 100%;
+  padding: 15rpx 20rpx ;
+}
+.fixed_address image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.fixed_address view{
+  font-size: 22rpx;
+  color: gray;
+}
+.fixed_address view text{
+  color: green;
+  padding: 0 30rpx;
+}
+.fixed-list .fixed-list-info .fixed-list-info-shopname {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fixed-list .fixed-list-info .fixed-list-info-shopname view{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.fixed-list .fixed-list-info .fixed-list-info-username {
+  height: 50rpx;
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fixed-list .fixed-list-info .fixed-list-info-username text {
+  padding-right: 15rpx;
+}
+
+.fixed-list .fixed-list-info .fixed-list-info-address {
+  height: 60rpx;
+  display: flex;
+  font-size: 22rpx;
+  align-items: center;
+  color: #515151;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.fixed-list .fixed-list-info .fixed-list-info-address image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.fixed-list .fixed-list-info .fixed-list-info-address text {
+  color: green;
+  
+}
+
+/* 维修列表end */
+
+/* 标题模板 */
+
+.menu-title {
+  width: 100%;
+  height: 90rpx;
+  /* background: #fff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #515151;
+  /* border-bottom: 1px solid #ddd; */
+  margin-bottom: 10rpx;
+}
+
+.menu-title image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.active {
+  color: red;
+}
+
+.recovery-template {
+  width: 95%;
+  /* height: 180rpx; */
+  box-sizing: border-box;
+  background: #fff;
+  margin: auto;
+  border-radius: 20rpx;
+  box-shadow: 3px 3px 3px #ddd, -3px 3px 3px #ddd;
+  padding: 15rpx;
+  margin-top: 25rpx;
+  border-top: 1rpx solid #dbdbdb;
+}
+
+.recovery-template .recovery-template-item {
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
+}
+.recovery-template .recovery-template-item .view{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.recovery-template .recovery-template-item image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.recovery-template .recovery-template-item label {
+  min-width: 160rpx;
+  /* background: red; */
+  margin-right: 10rpx;
+  text-align: right;
+  font-size: 30rpx;
+}
+
+.recovery-template .recovery-template-item view {
+  font-size: 32rpx;
+  flex-grow: 1;
+  color: #515151;
+}
+
+.recovery-template .recovery-template-item text {
+  color: green;
+  font-size: 26rpx;
+}
+
+.recovery-template-self {
+  width: 100%;
+  /* height: 120rpx; *//* background: #eee; */
+  box-sizing: border-box;
+  padding: 15rpx 15rpx 5rpx 20rpx;
+  border-bottom: 3rpx dotted #ddd;
+}
+
+.recovery-template-self .name {
+  font-size: 33rpx;
+}
+
+.recovery-template-self .des {
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #515151;
+}
+
+/* 资源列表样式 */
+
+.source {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.source .source-item {
+  width: 49%;
+  height: 400rpx;
+  /* background: #eee; *//* border-radius: 10rpx; */
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+}
+
+.source .source-item .img_box {
+  width: 100%;
+  height: 300rpx;
+  overflow: hidden;
+}
+
+.source .source-item .img_box image {
+  width: 100%;
+  /* max-height: 100%; */
+}
+
+.source .source-item .name {
+  font-size: 30rpx;
+  padding: 5rpx 10rpx;
+}
+
+.search {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #d4237a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #eee;
+  z-index: 10;
+}
+
+.search .addres {
+  width: 160rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+  height: 60rpx;
+  background: rgba(51, 51, 51, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rpx;
+}
+
+.search .addres text {
+  font-size: 22rpx;
+  color: #fff;
+  flex-grow: 1;
+}
+
+.search .addres image {
+  width: 30rpx;
+  /* height: 40rpx; */
+  margin-right: 10rpx;
+}
+
+.search  input {
+  height: 60rpx;
+  flex-grow: 1;
+  margin-left: 20rpx;
+  border: 1rpx solid #eee;
+  padding: 5rpx 30rpx;
+  font-size: 30rpx;
+  border-radius: 15rpx;
+  background: #fff;
+}
+
+.search .button {
+  min-width: 140rpx;
+  height: 70rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  border-radius: 5rpx;
+}
+
+.empty {
+  width: 100%;
+  height: 150rpx;
+}
+
+.option-box {
+  width: 110rpx;
+  /* height: 200rpx; *//* background: rgba(61, 61, 61, 0.2);   */
+  position: fixed;
+  bottom: 100rpx;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  padding: 10rpx;
+  z-index: 99;
+}
+
+.option-box view {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+   border-radius: 15rpx; 
+  background: #fff;
+  border: 1rpx solid #ddd;
+  text-align: center;
+}
+
+.option-box image {
+  width: 60rpx;
+  margin-top: 10rpx;
+}
+
+.login_box{
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+.login_box .login{
+  background: green;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}
+.loadmore{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.load{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+}
+.notice{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 200rpx;
+  color: #515151;
+  /* background: red; */
+  box-sizing: border-box;
+}
+.momore{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+.momore view{
+  border-bottom: 1rpx solid #ddd;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+.momore  text{
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  color: #ddd;
+}
+
+.bbottom {
+  width: 100%;
+  padding: 0 0 0 30rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
+  border-top: 1rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.bbottom .item button {
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  position: block;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border-radius: 0;
+  justify-content: center;
+}
+.bbottom .item button image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.bbottom .item button text {
+  font-size: 22rpx;
+  display: block;
+  width: 100%;
+}
+.bbottom .order{
+  background: red;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.bbottom .order button{
+  background: #d4237a;
+  height: 90rpx;
+  border-radius: 0;
+  line-height: 90rpx;
+  text-align: center;
+  padding: 0 40rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.bbottom .item .bottomhoverclass{
+  background-color: #F0F0F0;
+}
+.bbottom .bcolorhover{
+  background: #fd7ebe;
+}

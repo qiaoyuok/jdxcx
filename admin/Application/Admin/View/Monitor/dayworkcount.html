@@ -1,0 +1,80 @@
+<include file="Public/base" />
+<style type="text/css">
+    table tr td ul{
+        display: flex;
+        justify-content: space-around;
+    }
+    table tr td ul li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    table tr td ul li span{
+        width: 10px;
+        height: 25px;
+        background: #c2c2c2;
+    }
+</style>
+<body>
+
+    <div class="x-body">
+        <div class="layui-row">
+            <form class="layui-form layui-col-md12 x-so">
+                <input class="layui-input" placeholder="开始日期" name="start" id="start">
+                <input class="layui-input" placeholder="截止日期" name="end" id="end">
+                <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+            </form>
+        </div>
+
+        <div class="layui-form">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col>
+                    <col width="200">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>开关机时间</th>
+                        <th>日工作时间</th>
+                        <th>日油耗</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2018-07-08</td>
+                        <td><ul><for start='0' end='24'><li><span></span><b>{$i}</b></li></for></ul></td>
+                        <td>0.0小时</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2018-07-08</td>
+                        <td><ul><for start='0' end='24'><li><span></span><b>{$i}</b></li></for></ul></td>
+                        <td>0.0小时</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+        layui.use(['table', 'form', 'laydate'], function() {
+                    var table = layui.table;
+                    //监听提交
+                    form.on('submit(sreach)', function(data) {
+                        console.log(data);
+                        // 发异步，把数据提交给php
+                        table.reload('test', {
+                            where: data.field,
+                            page: {
+                                curr: 1 //重新从第 1 页开始
+                            }
+                        });
+                        return false;
+                    });
+        </script>
+    </div>
+</body>
+
+</html>

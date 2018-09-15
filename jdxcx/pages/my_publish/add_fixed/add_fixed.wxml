@@ -1,0 +1,24 @@
+<!--pages/my_publish/add_fixed/add_fixed.wxml-->
+<view class='addbox'>
+  <image bindtap='chooseimg' mode='widthFix' src='/images/addpic.png'></image>
+  <text>添加图片</text>
+</view>
+<scroll-view class='box' hidden='{{ishidden}}' style="width:100%" scroll-x="true">
+  <block wx:for="{{imglist}}" wx:key="i" wx:for-index="k">
+    <view class='pic_item' wx:if="{{item}}">
+      <view class='position'>
+        <image src='{{item}}'></image>
+        <text bindtap='del' data-id="{{k}}">删除</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<form bindsubmit="formSubmit">
+  <view class='des'>
+    <textarea name="des" maxlength="-1" placeholder="介绍您的服务特色，好的介绍会更吸引人哦。"></textarea>
+  </view>
+  <view class='des'>
+    <textarea name="ability" maxlength="-1" placeholder="技能标签，快速向用户展示您的服务内容，多个技能中间用'空格'隔开'；如：空调 洗衣机 冰箱"></textarea>
+  </view>
+  <button formType="submit" class='but'>提交</button>
+</form>

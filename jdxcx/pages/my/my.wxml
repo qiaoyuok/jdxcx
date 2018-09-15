@@ -1,0 +1,63 @@
+<view class='header'>
+    <view class='userinfo'>
+        <image class='header_pic' src='{{avatarurl?avatarurl:defaultimg}}'></image>
+        <view class='status' wx:if="{{islogin}}">
+            <view>
+                <image style='width:45rpx;height:45rpx;' wx:if="{{sex!=0}}" mode='widthFix' src="/images/{{sex}}.png" ></image>
+                <text>{{nickname}}</text>
+            </view>
+            <view class='rzstatus' wx:if="{{status == 1}}">
+                <text>通过认证</text>
+                <image style='width:45rpx;height:45rpx;' mode='widthFix' src='/images/rz.png'></image>
+            </view>
+        </view>
+        <view wx:else>
+            <button class="login" open-type="getPhoneNumber" bindgetphonenumber="login">微信登录</button>
+        </view>
+        <view wx:if="{{islogin}}" style="flex-grow: 1;display: flex;justify-content: flex-end;">
+          <image style='width:45rpx;' mode='widthFix' src="/images/right.png"  bindtap='redirect' data-url="./edit/edit"></image>
+        </view>
+    </view>
+</view>
+<view class='shop' wx:if="{{status == 1}}">
+    <view style='border-right:1rpx solid #ddd;' bindtap='redirect' data-url="/pages/get_order/get_order">
+        <image src='/images/s_order.png'></image>
+        <text>订单</text>
+    </view>
+    <view>
+        <image src='/images/money.png'></image>
+        <text>待定...</text>
+    </view>
+</view>
+<view class='my-list'>
+    <view class='list-item' bindtap='redirect' data-url="/pages/my_order/my_order">
+        <image class='icon' src='/images/order.png'></image>
+        <text>我的预约</text>
+        <image class='right' src='/images/right.png'></image>
+    </view>
+    <view class='list-item' bindtap='redirect' data-url="/pages/my_publish/my_publish?status={{status}}">
+        <image class='icon' src='/images/fb.png'></image>
+        <text>我的发布</text>
+        <image class='right' src='/images/right.png'></image>
+    </view>
+    <view class='list-item' bindtap='redirect' data-url="/pages/my_collect/my_collect">
+        <image class='icon' src='/images/my_collect.png'></image>
+        <text>我的收藏</text>
+        <image class='right' src='/images/right.png'></image>
+    </view>
+    <view class='list-item' bindtap='redirect' data-url="/pages/my_address/my_address">
+        <image class='icon' src='/images/w.png'></image>
+        <text>我的地址</text>
+        <image class='right' src='/images/right.png'></image>
+    </view>
+    <!-- <view class='list-item' bindtap='redirect' data-url="/pages/about/about">
+        <image class='icon' src='/images/about.png'></image>
+        <text>关于</text>
+        <image class='right' src='/images/right.png'></image>
+    </view> -->
+    <view class='list-item' bindtap='clear'>
+        <image class='icon' src='/images/clear.png'></image>
+        <text>清空缓存</text>
+        <image class='right' src='/images/right.png'></image>
+    </view>
+</view>

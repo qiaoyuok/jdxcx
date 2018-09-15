@@ -1,0 +1,60 @@
+<!-- 回收详情轮播图 -->
+<swiper indicator-dots="true" style='width:100%;' autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{pics}}" wx:key="i">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<scroll-view class='userinfo' scroll-y="true" scroll-with-animation="true" style='height:{{height}}rpx'>
+  <view class='item'>
+    <label>联系人</label>
+    <view>{{recoverdetail.realname}}</view>
+  </view>
+  <view class='item'>
+    <label>手机</label>
+    <view>{{recoverdetail.texttel}}<image bindtap='tocall' data-tel="{{recoverdetail.tel}}" src='/images/call.png'></image></view>
+  </view>
+  <view class='item'>
+    <label>微信</label>
+    <view>{{recoverdetail.textwx}}<image bindtap='copy' data-wx="{{recoverdetail.wx}}" src='/images/wx.png'></image></view>
+  </view>
+  <view class='item'>
+    <label>地址</label>
+    <view class='address' bindtap='getlocation'>{{recoverdetail.address}}{{recoverdetail.name}}{{recoverdetail.detail}}
+      <!-- <text>{{recoverdetail.distance}}</text> -->
+    </view>
+  </view>
+  <view class='item'>
+    <label>介绍</label>
+    <view>{{recoverdetail.des}}</view>
+  </view>
+</scroll-view>
+
+<view class='bbottom'>
+  <view class='item'>
+    <button hover-class='bottomhoverclass' bindtap='collectoption'>
+      <image mode='widthFix' wx:if="{{collectstatus}}" src='/images/b_s_collect.png'></image>
+      <image mode='widthFix' wx:else src='/images/b_collect.png'></image>
+      <text wx:if="{{collectstatus}}" style='color:#d81e06'>已收藏</text>
+      <text wx:else>收藏</text>
+    </button>
+  </view>
+  <view class='item'>
+    <button hover-class='bottomhoverclass' open-type="share">
+      <image mode='widthFix' src='/images/b_share.png'></image>
+      <text>分享</text>
+    </button>
+  </view>
+  <view class='item'>
+    <button hover-class='bottomhoverclass' bindtap='copy' data-wx="{{recoverdetail.wx}}">
+      <image mode='widthFix' src='/images/b_wx.png'></image>
+      <text>微信</text>
+    </button>
+  </view>
+  <view class='order'>
+    <button bindtap='order' hover-class='bcolorhover' bindtap='tocall' data-tel="{{recoverdetail.tel}}">
+      电话联系
+    </button>
+  </view>
+</view>

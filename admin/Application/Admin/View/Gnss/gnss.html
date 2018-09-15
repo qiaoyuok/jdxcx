@@ -1,0 +1,167 @@
+<include file="Public/base" />
+
+<body>
+    <div class="x-nav">
+        <span class="layui-breadcrumb">
+        <notempty name="nav">
+            <volist name="nav" id="vo">
+                <a href="{:U($vo['url'])}">{$vo.name}</a>
+            </volist>
+        </notempty>
+      </span>
+        <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+        <div class="layui-row">
+            <form class="layui-form layui-col-md12 x-so">
+                <input type="text" name="gnss" placeholder="请输入GNSS编号" autocomplete="off" class="layui-input">
+                <input type="text" name="sim" placeholder="请输入SIM卡号" autocomplete="off" class="layui-input">
+                <div class="layui-input-inline">
+                    <notempty name="supplierlist">
+                        <select name="supplier_id" lay-filter="select">
+                            <option value=''>全部供应商</option>
+                            <volist name="supplierlist" id="vo">
+                                <option value="{$vo.id}">{$vo.supplier}</option>
+                                </eq>
+                            </volist>
+                        </select>
+                    </notempty>
+                </div>
+                <div class="layui-input-inline">
+                    <notempty name="companylist">
+                        <select name="company_id" lay-filter="select">
+                            <option value=''>全部单位</option>
+                            <volist name="companylist" id="vo">
+                                <option value="{$vo.id}">{$vo.company}</option>
+                                </eq>
+                            </volist>
+                        </select>
+                    </notempty>
+                </div>
+                <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+            </form>
+        </div>
+        <xblock class="demoTable">
+            <button class="layui-btn layui-btn-danger" data-type="getCheckData"><i class="layui-icon"></i>批量删除</button>
+            <button class="layui-btn" onclick="x_admin_show('添加GNSS编号','{:U(addgnss)}',750,550,'{:U(gnss)}')"><i class="layui-icon"></i>添加</button>
+        </xblock>
+        <table class="layui-hide" id="test" lay-filter="test"></table>
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        </script>
+        <script>
+        layui.use(['table', 'form'], function() {
+            var flag = false;
+            var table = layui.table;
+            var form = layui.form;
+            table.render({
+                elem: '#test',
+                url: "{:U('Gnss/gnss')}",
+                method: "post",
+                height: 420,
+                cols: [
+                    [{ type: 'checkbox' },
+                        { field: 'id', title: 'ID', width: 50 },
+                        { field: 'gnss', title: 'Gnss终端编号', edit: "text" },
+                        { field: 'sim', title: 'SIM卡号', sort: true },
+                        { field: 'company', title: '所属单位'},
+                        { field: 'supplier', title: 'GNSS供应商' },
+                        { field: 'model', title: 'GNSS型号' },
+                        { field: 'remark', title: '备注' },
+                        { field: 'create_time', title: '添加时间' },
+                        { fixed: 'right', width: 115, title: "操作", toolbar: '#barDemo' }
+                    ]
+                ],
+                page: true,
+                limit: 8,
+                limits: [8, 10],
+                loading: true,
+                id: "test"
+            });
+
+            table.on('tool(test)', function(obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                console.log(obj.data)
+                var data = obj.data; //获得当前行数据
+                // console.log(data);return false;
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                var tr = obj.tr; //获得当前行 tr 的DOM对象
+                if (layEvent === 'edit') { //查看
+                        
+                    x_admin_show('编辑GNSS编号','{:U(editgnss)}?id='+data.id,750,550,'{:U(gnss)}')
+
+                } else if (layEvent === 'del') { //删除
+                    layer.confirm('真的删除行么', function(index) {
+
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        $.post("{:U('delgnss')}", "id=" + data.id, function(res) {
+                            showmsg(res, "{:U('gnss')}", 1)
+
+                        })
+                    });
+                }
+            });
+
+            //监听单元格编辑
+            table.on('edit(test)', function(obj) {
+                var value = obj.value //得到修改后的值
+                    ,
+                    data = obj.data //得到所在行所有键值
+                    ,
+                    field = obj.field; //得到字段
+                console.log(value.length)
+
+                $.post("{:U('changeOnemodel')}", "id=" + data.id + "&field=" + field + "&value=" + value, function(res) {
+                    showmsg(res, "{:U('gnss')}", 1)
+                })
+                // layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+            });
+
+            //监听提交
+            form.on('submit(sreach)', function(data) {
+                console.log(data);
+                // 发异步，把数据提交给php
+                table.reload('test', {
+                    where: data.field,
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                });
+                return false;
+            });
+
+            var $ = layui.$,
+                active = {
+
+                    getCheckData: function() { //获取选中数据
+                        var checkStatus = table.checkStatus('test'),
+                            data = checkStatus.data;
+                        console.log(checkStatus);
+                        var str = '';
+                        $.each(checkStatus.data, function(index, el) {
+                            if (index) {
+                                str += "," + el.id;
+                            } else {
+                                str += el.id;
+                            }
+                        });
+                        layer.confirm('真的删除行么', function(index) {
+                            $.post("{:U('delgnss')}", "id=" + str, function(res) {
+                                showmsg(res, "{:U('gnss')}", 1)
+                            });
+                        });
+                    }
+                };
+
+            $('.demoTable .layui-btn').on('click', function() {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+        </script>
+    </div>
+</body>
+
+</html>

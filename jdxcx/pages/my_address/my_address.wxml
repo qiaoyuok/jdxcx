@@ -1,0 +1,30 @@
+<!--pages/my_address/my_address.wxml-->
+<import src='../template/template.wxml' />
+<scroll-view class='my_address_box' scroll-y="true" scroll-with-animation="true" style="height:{{height}}rpx">
+<template is="load" data="{{hideload}}"/>
+  <block wx:for="{{addresslist}}" wx:key="i">
+    <view class='item' bindtap='choose' data-id='{{item.id}}'>
+    <view class='des'>
+      <view class='address'>{{item.name}}</view>
+      <view class='info'>
+        <text>{{item.realname}}　</text>
+        <text>{{item.tel}}</text>
+      </view>
+    </view>
+    <view class='option'>
+      <image mode='widthFix' wx:if="{{item.status == 1}}" style='width: 50rpx;height:50rpx;' src='/images/s_choose.png'></image>
+      <image mode='widthFix' wx:if="{{item.status == 0}}" style='width: 50rpx;height:50rpx;' src='/images/choose.png'></image>
+      <image mode='widthFix' catchtap='edit' catchtap='redirect' data-url="./edit?id={{item.id}}" src='/images/edit.png'></image>
+      <image mode='widthFix' catchtap='del' data-id='{{item.id}}' src='/images/del.png'></image>
+    </view>
+  </view>
+  </block>
+  <template is="notice" data="{{hiddennotice}}"/>
+  
+</scroll-view>
+<view class='bottom'>
+  <view class='cont' bindtap='redirect' data-url="./add">
+    <image mode='widthFix' src='/images/add.png'></image>
+    <text>添加新地址</text>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+<include file="Public/base" />
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    上级单位
+                </label>
+                <div class="layui-input-inline">
+                    <select name="pid">
+                        <option value="0">无上级</option>
+                        <notempty name="list">
+                            <volist name="list" id="vo">
+                                <notempty name="vo.checked">
+                                    <option value="{$vo.id}" selected="selected">{$vo.html}{$vo.company}</option>
+                                    <else/>
+                                    <option value="{$vo.id}">{$vo.html}{$vo.company}</option>
+                                </notempty>
+                            </volist>
+                        </notempty>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">
+                    <span class="x-red">*</span>单位名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="company" name="company" required="" lay-verify="company" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    联系人
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="username" name="username" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_pass" class="layui-form-label">
+                    联系电话
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="tel" name="tel" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">
+                    备注
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="L_email" name="remark" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    确定
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+    layui.use(['form', 'layer'], function() {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+        //自定义验证规则
+        form.verify({
+            company: function(value) {
+                if (value.length < 1) {
+                    return '单位名称不能为空';
+                }
+            }
+           
+        });
+
+        //监听提交
+        form.on('submit(add)', function(data) {
+            console.log(data);
+            // 发异步，把数据提交给php
+            $.post("{:U('addcom')}", data.field, function(res) {
+                showmsg(res)
+                setTimeout(() => {
+                    // 获得frame索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    //关闭当前frame
+                    parent.layer.close(index);
+                }, 2000)
+            })
+            return false;
+        });
+
+
+    });
+    </script>
+</body>
+
+</html>

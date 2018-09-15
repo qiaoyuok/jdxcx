@@ -1,0 +1,161 @@
+<template name="student">
+  <view wx:for="{{data}}" wx:for-item="v" wx:for-index="k" wx:key="i">
+    序号：{{k+1}}姓名：{{v.name}}年龄：{{v.age}}
+  </view>
+</template>
+
+<!-- 维修服务模板 -->
+<template name="fixed">
+  <block wx:for="{{fixedlist}}" wx:key="i">
+    <view class='fixed-list' bindtap='redirect' data-url='/pages/fixed_detail/fixed_detail?id={{item.id}}'>
+      <view class='fixed-list-headerpic'>
+        <image src='{{item.idf}}'></image>
+      </view>
+      <view class='fixed-list-info'>
+        <view class='fixed-list-info-shopname'>
+          <view>
+            <text>{{item.shopname}}</text>
+            <image wx:if="{{item.status == 1}}" style='width:50rpx;height:50rpx;' mode='widthFix' src="/images/rz.png"></image>
+          </view>
+          <view>
+            <image src='/images/view.png' style='width:40rpx;' mode='widthFix'></image>
+            <text style='color:#707070;font-size:26rpx;padding:0 15rpx 0 0;'>{{item.view}}</text>
+          </view>
+        </view>
+        <view class='fixed-list-info-username'>
+          <text>{{item.realname}}</text>
+          <text>已售 {{item.count}}</text>
+          <text>评分 {{item.svgscore}}</text>
+        </view>
+        <view class='fixed-list-info-address'>
+          <view style="display: flex;align-items: center;color: #515151">
+            <image mode='widthFix' src='/images/address.png'></image>{{item.tmp_address}}</view>
+          <text style='padding:0 15rpx;'>{{item.distance}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>
+
+<!-- 回收服务模板 -->
+<template name="recovery">
+  <block wx:for="{{list}}" wx:key="i">
+    <view class='recovery-template' bindtap='redirect' data-url='/pages/recovery_detail/recovery_detail?id={{item.id}}'>
+      <view class='recovery-template-item'>
+        <label>服务描述</label>
+        <view>{{item.des}}</view>
+        <view class='view'>
+          <image src='/images/view.png' style='width:40rpx;' mode='widthFix'></image>
+          <text style='color:#515151;'>{{item.view}}</text>
+        </view>
+      </view>
+      <view class='recovery-template-item'>
+        <label>联系人</label>
+        <view>{{item.realname}}{{item.id}}</view>
+      </view>
+
+      <view class='recovery-template-item'>
+        <image src='/images/address.png'></image>
+        <view style='font-size: 26rpx;'>{{item.tmp_address}}</view>
+        <text>{{item.distance}}</text>
+      </view>
+
+    </view>
+  </block>
+</template>
+
+<!-- 附近商圈模板 -->
+<template name="recovery-self">
+  <view class='recovery-template-self' bindtap='redirect' data-url='/pages/recovery_sail/recovery_sail?id=1'>
+    <view class='name'>大量工厂机械出售</view>
+    <view class='des'>
+      <text>发布：2018.7.13 12:52:22</text>
+      <text>江干区</text>
+    </view>
+  </view>
+</template>
+
+
+<!-- 货源列表模板 商品通用展示模板 -->
+<template name="source">
+  <view class='source'>
+    <view class='source-item' bindtap='redirect' data-url='/pages/source_detail/source_detail?id=1'>
+      <view class='img_box'>
+        <image src="/images/avatar.jpg"></image>
+      </view>
+      <view class='name'>英语怎么说_在线翻译_有道词典</view>
+    </view>
+    <view class='source-item' bindtap='redirect' data-url='/pages/source_detail/source_detail?id=1'>
+      <view class='img_box'>
+        <image src="/images/avatar.jpg"></image>
+      </view>
+      <view class='name'>英语怎么说_在线翻译_有道词典</view>
+    </view>
+    <view class='source-item' bindtap='redirect' data-url='/pages/source_detail/source_detail?id=1'>
+      <view class='img_box'>
+        <image src="/images/avatar.jpg"></image>
+      </view>
+      <view class='name'>英语怎么说_在线翻译_有道词典</view>
+    </view>
+  </view>
+</template>
+
+<template name="search">
+  <form bindsubmit='actionsearch'>
+    <view class='search'>
+      <view class='addres'>
+        <image mode="widthFix" src='/images/white_add.png'></image>
+        <text>{{curarea}}</text>
+      </view>
+      <input type="text" name="keyword" placeholder='请输入关键字'></input>
+      <button formType="submit" class='button'>搜索</button>
+    </view>
+  </form>
+</template>
+
+<!-- 留空模板 -->
+<template name="empty">
+  <view class='empty'></view>
+</template>
+
+<!-- 右下角操作 -->
+<template name="option">
+  <view class='option-box'>
+    <view hidden='{{tophidden}}' bindtap='totop'>
+      <image mode='widthFix' src='/images/top.png'></image>
+    </view>
+    <view bindtap='tohome'>
+      <image mode='widthFix' src='/images/o_h.png'></image>
+    </view>
+  </view>
+</template>
+
+<!-- 加载更多底部提示信息 -->
+<template name="loadmore">
+  <view class='loadmore' hidden='{{ishidden}}'>
+    <image style='width:70rpx;height:70rpx;' src='/images/loadmore.gif'></image>
+    <text>正在加载更多</text>
+  </view>
+</template>
+<!-- <template is="loadmore" /> -->
+
+<template name="nomore">
+  <view class='momore' hidden='{{!nomore}}'>
+    <view></view>
+    <text>没有更多了</text>
+    <view></view>
+  </view>
+</template>
+
+<!-- 刷新 -->
+<template name="load">
+  <view class='load' hidden="{{hideload}}">
+    <image style='width:70rpx;height:70rpx;' src='/images/loadmore.gif' mode='widthFix'></image>
+    <text>正在刷新数据中</text>
+  </view>
+</template>
+<!-- <template is="load"/> -->
+
+<template name="notice">
+  <view class='notice' hidden='{{hiddennotice}}'>暂无数据</view>
+</template>

@@ -1,0 +1,120 @@
+<include file="Public/base" />
+<style type="text/css">
+table tr td{
+    padding: 2px 10px !important;
+}
+</style>
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <div class="layui-form">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>分类</th>
+                        <th>名称</th>
+                        <th>参数值</th>
+                        <th>参数范围</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6">轨迹参数</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>轨迹参数</td>
+                        <td>自动回报位置信息时长</td>
+                        <td>0</td>
+                        <td></td>
+                        <td>只读参数</td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>轨迹参数</td>
+                        <td>自动回报时长的有效期</td>
+                        <td>0</td>
+                        <td></td>
+                        <td>只读参数</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">通信参数</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>通信参数</td>
+                        <td>服务器IP及端口</td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>通信参数</td>
+                        <td>APN</td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>通信参数</td>
+                        <td>GSM无信号锁车时长</td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">主机参数</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>主机参数</td>
+                        <td>主电源保护的电压值</td>
+                        <td>0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <input type="radio" name="sex" value="0">
+                        </td>
+                        <td>主机参数</td>
+                        <td>终端属性</td>
+                        <td contenteditable="true">0</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+                <button class="layui-btn" lay-submit="" lay-filter="sreach">读取</button>
+                <button class="layui-btn" lay-submit="" lay-filter="sreach">设置</button>
+
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+/* pages/my/edit/edit.wxss */
+.avatarurl{
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatarurl image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 0;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.box .item{
+  width: 90%;
+  height: 90rpx;
+  /* background: #ddd; */
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.box .item label{
+  min-width: 130rpx;
+  /* border: 1rpx solid #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c2c2c2;
+  font-size: 36rpx;
+}
+.box .item input{
+  /* background: green; */
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  border-left: 1rpx solid #eee;
+  font-size: 36rpx;
+}
+.box .item  .picker{
+  /* background: red; */
+  flex-grow: 1;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+}
+.box .item  .picker picker{
+  flex-grow: 1;
+  box-sizing: border-box;
+  border-left: 1rpx solid #eee;
+  padding: 0 30rpx;
+}
+button{
+  width: 70%;
+  height: 80rpx;
+  background: #009688;
+  color: #fff;
+  line-height: 80rpx;
+  margin-top: 100rpx;
+}

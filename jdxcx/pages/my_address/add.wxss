@@ -1,0 +1,70 @@
+/* pages/fixed_detail/order.wxss */
+form{
+  margin-top: 40rpx;
+}
+.item{
+  width: 100%;
+  padding: 20rpx 0;
+  /* background: #eee; */
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+.item label{
+  min-width: 200rpx;
+  /* background: red; */
+  text-align: right;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.item label text{
+  color: red;
+}
+.item input,.item textarea{
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.address .address-item{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+}
+.address .address-item .choose-address{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  padding: 0 0 20rpx 0;
+  justify-content: space-between;
+}
+.address .address-item input.detail{
+   margin-top: 20rpx; 
+}
+.address .address-item .choose-address .image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.address .address-item .choose-address .detail-address{
+  flex-grow: 1;
+}
+.address image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.btn-area{
+  margin-top: 80rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btn-area button{
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background:#d4237a;
+  color: #fff;
+}

@@ -1,0 +1,78 @@
+<include file="Public/base" />
+
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo"><a href="./index.html">后台登录</a></div>
+        <div class="left_open">
+            <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+        </div>
+        <ul class="layui-nav right" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="javascript:;">{$_SESSION['user']['username']}</a>
+                <dl class="layui-nav-child">
+                    <!-- 二级菜单 -->
+                    <!-- <dd><a onclick="x_admin_show('修改密码','http://www.baidu.com')">修改密码</a></dd> -->
+                    <dd><a href="{:U('Public/loginout')}">退出</a></dd>
+                </dl>
+            <li>
+        </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <ul id="nav">
+                <notempty name="menus">
+                    <volist name="menus" id="vo">
+                        <eq name="vo.pid" value="0">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="layui-icon" style="font-size: 23px; color: #8a8a8a;">{$vo.icon}</i>
+                                    <cite>{$vo.name}</cite>
+                                    <i class="iconfont nav_right">&#xe697;</i>
+                                </a>
+                                <notempty name="vo.son">
+                                    <ul class="sub-menu">
+                                        <volist name="vo.son" id="v">
+                                            <li>
+                                                <a _href="{:U($v['url'])}">
+                                                    <i class="iconfont">&#xe6a7;</i>
+                                                    <cite>{$v.name}</cite>
+                                                </a>
+                                            </li>
+                                        </volist>
+                                    </ul>
+                                </notempty>
+                            </li>
+                        </eq>
+                    </volist>
+                </notempty>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+            <ul class="layui-tab-title">
+                <li class="home"><i class="layui-icon">&#xe68e;</i>后台首页</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src="{:U('Index/home')}" frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content-bg"></div>
+    <!-- 右侧主体结束 -->
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="copyright">后台管理系统 © 2018 </div>
+    </div>
+</body>
+
+</html>

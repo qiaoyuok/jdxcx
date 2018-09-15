@@ -1,0 +1,34 @@
+<!--pages/my/edit/edit.wxml-->
+<view class='avatarurl'>
+  <image bindtap='chooseimg' src='{{avatarurl}}'></image>
+</view>
+<form bindsubmit='save'>
+  <view class='box'>
+    <input type="text" name="avatarurl" hidden='true' value="{{servimg}}"></input>
+    <input type="text" name="sex" hidden='true' value="{{sex}}"></input>
+    <view class='item'>
+      <label>姓名</label>
+      <input type="text" name="realname" value="{{realname}}"></input>
+    </view>
+    <view class='item'>
+      <label>手机</label>
+      <input type="text" name="tel" value="{{tel}}"></input>
+    </view>
+    <view class='item'>
+      <label>微信</label>
+      <input type="text" name="wx" value="{{wx}}"></input>
+    </view>
+    <view class='item'>
+      <label>昵称</label>
+      <input type="text" name="nickname" value="{{nickname}}"></input>
+    </view>
+    <view class='item'>
+      <label>性别</label>
+      <view class='picker'>
+        <picker bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">{{array[sex]}}</picker>
+        <image src='/images/right.png' style='width:50rpx;height:50rpx;'></image>
+      </view>
+    </view>
+    <button form-type='submit'>保存</button>
+  </view>
+</form>

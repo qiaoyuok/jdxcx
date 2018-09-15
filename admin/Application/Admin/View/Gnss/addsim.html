@@ -1,0 +1,86 @@
+<include file="Public/base" />
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>sim卡号
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="sim" required="" lay-verify="sim" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>所属单位
+                </label>
+                <div class="layui-input-inline">
+                    <notempty name="list">
+                        <select name="company_id" required="" lay-verify="company_id">
+                            <volist name="list" id="vo">
+                                <option value="{$vo.id}">{$vo.company}</option>
+                            </volist>
+                        </select>
+                    </notempty>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                    备注
+                </label>
+                <div class="layui-input-inline">
+                    <textarea class="layui-textarea" name="remark" lay-verify="content"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    确定
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+    layui.use(['form', 'layer'], function() {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+        //自定义验证规则
+        form.verify({
+            sim: function(value) {
+                if (value.length < 1) {
+                    return 'sim卡号不能为空';
+                }
+            },
+            company_id: function(value) {
+                if (value.length < 1) {
+                    return '请选择单位';
+                }
+            },
+        });
+
+        //监听提交
+        form.on('submit(add)', function(data) {
+            console.log(data);
+            // 发异步，把数据提交给php
+            $.post("{:U('addsim')}", data.field, function(res) {
+                showmsg(res)
+                setTimeout(() => {
+                    // 获得frame索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    //关闭当前frame
+                    parent.layer.close(index);
+                }, 2000)
+            })
+            return false;
+        });
+
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+/* pages/my_publish/my_publish.wxss */
+.tab_box{
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+  justify-content: space-around;
+  z-index: 99;
+}
+.tab_box view{
+  width: 25%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  box-sizing: border-box;
+  font-size: 35rpx;
+}
+.box{
+  margin-top: 95rpx;
+}
+
+.tab_box .active{
+  color: #E6454A;
+  border-bottom: 5rpx solid #E6454A;
+}
+.bottom{
+  width: 100%;
+  height: 150rpx;
+  /* background: red; */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom view{
+  width: 80%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  box-sizing: border-box;
+  /* border: 1rpx solid #ddd; */
+  background: #5FB878;
+  color: #fff;
+  border-radius: 15rpx;
+}
+.fixed-list{
+  margin: 0;
+  /* border: none; */
+}
+.fixed-option{
+  width: 100%;
+  height: 80rpx;
+  /* background: #ddd; */
+  border-bottom: 15rpx solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.fixed-option button{
+  box-sizing: border-box;
+  /* border: 1rpx solid #eee; */
+  height: 60rpx;
+  padding: 0 25rpx;
+  line-height: 60rpx;
+  margin-right: 15rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.fixed-option .edit{
+  background: #009688;
+}
+.fixed-option .del{
+  background: #FF5722;
+}

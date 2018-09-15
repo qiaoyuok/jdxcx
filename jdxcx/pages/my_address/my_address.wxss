@@ -1,0 +1,66 @@
+/* pages/my_address/my_address.wxss */
+.load{
+  top: 0;
+}
+.my_address_box{
+  width: 100%;
+  /* height: 500rpx; */
+  background: #fff;
+  box-sizing: border-box;
+}
+.my_address_box .item{
+  width: 100%;
+  /* height: 120rpx; */
+  background: #fff;
+  padding: 10rpx 20rpx 10rpx 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+}
+.my_address_box .item .des{
+  flex-grow: 1;
+}
+.my_address_box .item .address{
+  width: 100%;
+  font-size: 32rpx;
+}
+.my_address_box .item .info{
+  width: 100%;
+  font-size: 30rpx;
+  color: #515151;
+  margin-top: 10rpx;
+}
+.my_address_box .item .option{
+  width: 180rpx;
+  display: flex;
+  /* background: red; */
+  justify-content: space-between;
+  align-items: center;
+}
+.my_address_box .item .option image{
+  width: 50rpx;
+
+}
+.bottom{
+  width: 100%;
+  height: 120rpx;
+  /* background: #ddd; */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom .cont{
+  width: 80%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+}
+.bottom .cont image{
+  width: 40rpx;
+  margin-right: 15rpx;
+}

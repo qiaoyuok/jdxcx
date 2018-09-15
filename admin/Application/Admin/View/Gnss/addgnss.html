@@ -1,0 +1,229 @@
+<include file="Public/base" />
+<style type="text/css">
+.layui-field-title {
+    margin: 0 !important;
+}
+
+.layui-field-title legend {
+    font-size: 16px;
+    color: #01AAED;
+}
+
+.layui-form-label {
+    width: 100px;
+}
+</style>
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <form class="layui-form">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend class="title">GNSS终端资料</legend>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>GNSS编号
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="gnss" required="" lay-verify="gnss" autocomplete="off" class="layui-input">
+                    </div>
+                    <label for="L_username" class="layui-form-label">
+                        试用状态
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="status">
+                            <option value="1">正常</option>
+                            <option value="0">停止</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>GNSS供应商
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="supplier_id" required="" lay-verify="supplier_id" lay-filter='supplier'>
+                            <notempty name="supplierlist">
+                                <volist name="supplierlist" id="vo">
+                                    <option value="{$vo.id}">{$vo.supplier}</option>
+                                </volist>
+                                <else/>
+                                <option value="">请先添加供应商</option>
+                            </notempty>
+                        </select>
+                    </div>
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>GNSS型号
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="model_id" required="" lay-verify="model_id" id="modellist">
+                            <option value=''>请先添加GNSS型号</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        安装人员
+                    </label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" name="buildname" lay-verify="content" value="{$_SESSION['user']['realname']}"></input>
+                    </div>
+                    <label for="L_repass" class="layui-form-label">
+                        安装日期
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="time" name="buildtime" readonly="onlyread">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_username" class="layui-form-label">
+                        所属单位
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="company_id" required="" lay-verify="supplier_id">
+                            <notempty name="companylist">
+                                <volist name="companylist" id="vo">
+                                    <option value="{$vo.id}">{$vo.company}</option>
+                                </volist>
+                                <else/>
+                                <option value=''>请先添加单位</option>
+                            </notempty>
+                        </select>
+                    </div>
+                    <label for="L_username" class="layui-form-label">
+                        备注信息
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" name="remark">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend class="title">SIM卡信息</legend>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        SIM卡号
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="sim_id" id="sim_id" hidden="hidden">
+                        <input class="layui-input" id="sim" readonly="onlyread" placeholder="点击选择SIM卡" onclick="showsimpage()"></input>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        备注
+                    </label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" readonly="onlyread" id="remark"></input>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    确定
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+    var modellist = <?php echo !empty($modellist)?json_encode($modellist):"null"?>;
+    var supplierlist = <?php echo !empty($supplierlist)?json_encode($supplierlist):"null"?>;
+    console.log(modellist);
+    console.log(supplierlist);
+    layui.use(['form', 'layer', 'laydate'], function() {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#time' //指定元素
+                ,
+            value: new Date() //参数即为：2018-08-20 20:08:08 的时间戳
+        });
+        //自定义验证规则
+        form.verify({
+            gnss: function(value) {
+                if (value.length < 1) {
+                    return 'gnss编号不能为空';
+                }
+            },
+            supplier_id: [/\d+$/,'供应商不能为空'],
+            model_id: [/\d+$/,'GNSS型号不能为空'],
+        });
+
+        //监听提交
+        form.on('submit(add)', function(data) {
+            console.log(data);
+            // 发异步，把数据提交给php
+            $.post("{:U('addgnss')}", data.field, function(res) {
+                showmsg(res)
+                setTimeout(() => {
+                    // 获得frame索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    //关闭当前frame
+                    parent.layer.close(index);
+                }, 2000)
+            })
+            return false;
+        });
+
+        if (supplierlist != null && modellist != null) {
+            xr(supplierlist[0]['id']);
+        }
+
+        form.on('select(supplier)', function(data) {
+            xr(data.value);
+        });
+
+        function xr(value) {
+
+            if (modellist != null) {
+
+                var n = 0;
+
+                var children = $("#modellist").children();
+                for (var i = children.length - 1; i >= 0; i--) {
+                    $("#modellist").children()[0].remove();
+                }
+
+                $.each(modellist, function(index, el) {
+                    if (value == el.supplier_id) {
+                        n++;
+                        $("#modellist").append('<option value="' + el.id + '">' + el.model + '</option>')
+                    }
+                })
+
+                if(n == 0){
+                    $("#modellist").append('<option value="">请先添加GNSS型号</option>')
+                }
+
+                form.render('select');
+            }
+        }
+    });
+
+
+
+    function showsimpage() {
+        layer.open({
+            title:"选择SIM卡",
+            type: 2,
+            shade:  [0.8, '#515151'],
+            area: '500px',
+            maxmin: true,
+            skin: 'yourclass',
+            area: ['600px', '500px'],
+            content: "{:U('simlist')}",
+            zIndex: layer.zIndex, //重点1
+            success: function(layero) {
+                layer.setTop(layero); //重点2
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

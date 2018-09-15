@@ -1,0 +1,34 @@
+/* pages/recovery/recovery.wxss */
+.load{
+  top: 140rpx;
+}
+.tab_box{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  position: fixed;
+  top: 120rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+  background: #fff;
+  z-index: 99;
+}
+.tab_box view{
+  width: 50%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.tab_box .active{
+  color: #E6454A;
+  border-bottom: 5rpx solid #E6454A;
+}
+.box{
+  position: relative;
+  top:120rpx;
+  padding: 0 0 30rpx 0;
+}
+.loadmore{
+  margin-top: 20rpx;
+}

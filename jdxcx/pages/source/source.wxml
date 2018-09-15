@@ -1,0 +1,6 @@
+<!--pages/source/source.wxml-->
+<import src="../template/template"/>
+<!-- 搜索 -->
+<template is="search"/>
+<template is="source" />
+

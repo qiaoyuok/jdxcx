@@ -1,0 +1,62 @@
+<!--pages/fixed/fixed.wxml-->
+<import src='../template/template.wxml' />
+<template is="option" data="{{tophidden}}" />
+
+<!-- 搜索 -->
+<template is="search" data="{{curarea}}" />
+<view class='box' bindtap='cancel' animation="{{boxData}}">
+  <!-- 操作导航 -->
+  <view class='option'>
+    <view class='option-item' catchtap='donghua' data-name="sort">{{sort_name}}
+      <image animation="{{sortData}}" src='/images/dow.png'></image>
+    </view>
+    <view class='option-item' catchtap='donghua' data-name="serv">{{serv_name}}
+      <image animation="{{servData}}" src='/images/dow.png'></image>
+    </view>
+    <view class='option-item' catchtap='donghua' data-name="area">{{city_name}}
+      <image animation="{{areaData}}" src='/images/dow.png'></image>
+    </view>
+  </view>
+  <view style='height:90rpx;'></view>
+  <!-- 排序操作 -->
+  <view class='sort' hidden='{{sortHidden}}'>
+    <block wx:for="{{sortlist}}" wx:key="i" wx:for-index="k">
+      <view catchtap='choenv' data-index="{{k}}" data-flag='sort' class='sort-item active' wx:if="{{item.check == 1}}">
+        {{item.name}}
+      </view>
+      <view catchtap='choenv' data-index="{{k}}" data-flag='sort' wx:else class='sort-item'>
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+  <!-- 区域 -->
+  <view class='area' hidden='{{areaHidden}}'>
+    <view class='wrapper'>
+      <list-html data="{{city}}" binddetail="bindtap" search="{{value}}"></list-html>
+    </view>
+  </view>
+  <!-- 服务内容 -->
+  <view class='serv' hidden='{{servHidden}}'>
+    <block wx:for="{{servlist}}" wx:key="i" wx:for-index="k">
+      <!-- <view class='serv-item' catchtap='choenv'  data-index="{{k}}" data-flag='serv' >
+        {{item.name}}
+      </view> -->
+      <view catchtap='choenv' data-index="{{k}}" data-flag='serv' class='serv-item active' wx:if="{{item.check == 1}}">
+        {{item.name}}
+      </view>
+      <view catchtap='choenv' data-index="{{k}}" data-flag='serv' wx:else class='serv-item'>
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+</view>
+<view class='fixed-box'>
+  <template is="fixed" data="{{fixedlist}}" />
+  <template is="load" data="{{hideload}}" />
+  <template is="notice" data="{{hiddennotice}}" />
+  <template is="loadmore" data="{{ishidden}}" />
+  <template is="nomore" data="{{nomore}}" />
+</view>
+
+
+<!-- </scroll-view> -->

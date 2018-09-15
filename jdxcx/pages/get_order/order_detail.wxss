@@ -1,0 +1,92 @@
+/* pages/my_order/order_detail.wxss */
+.box{
+  width: 100%;
+  /* height: 500rpx; */
+  /* background: #ddd; */
+}
+.box .tip{
+  width: 100%;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.box .item{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx;
+  /* background: #ff0000; */
+  display: flex;
+  /* border-bottom: 1rpx solid #ddd; */
+}
+.box .item label{
+  min-width: 170rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  font-size: 33rpx;
+}
+.box .item  view{
+  color: #515151;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.box .item image{
+  width: 50rpx;
+  margin-right: 10rpx;
+}
+.box .status{
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 10rpx solid #ddd;
+}
+.box .status view{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom{
+  width: 100%;
+  height: 110rpx;
+  /* background: #ddd; */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  /* box-sizing: border-box; */
+  justify-content: center;
+  align-items: center;
+  /* border-top: 1rpx solid #ddd; */
+}
+.bottom view{
+  width: 80%;
+  height: 80rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shop_contact{
+  width: 100%;
+  height: 90rpx;
+   /* background: #eee;  */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 31rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.shop_contact .shop_contact_item{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop_contact image{
+  width: 70rpx;
+  height: 70rpx;
+}

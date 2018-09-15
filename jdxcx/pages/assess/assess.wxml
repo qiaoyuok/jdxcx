@@ -1,0 +1,15 @@
+<!--pages/assess/assess.wxml-->
+<view class='box'>
+  <view class='star'>
+  <view class='tip'>服务评价</view>
+  <view class='stars'>
+    <block wx:for="{{stars}}" wx:key="i" wx:for-index="k">
+      <image mode='widthFix' bindtap='assess' data-k="{{k}}" style='width:50rpx;' src='{{item}}'></image>
+    </block>
+  </view>
+</view>
+<form bindsubmit='formsubmit'>
+  <textarea name="content" placeholder='服务准时，收费合理'></textarea>
+  <button form-type='submit'>提交评价</button>
+</form>
+</view>

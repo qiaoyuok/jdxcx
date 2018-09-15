@@ -1,0 +1,49 @@
+<!--pages/my_order/order_detail.wxml-->
+<import src="/pages/template/template" />
+<scroll-view class='box' scroll-y="true" scroll-with-animation="true" style='height:{{height}}rpx'>
+  <view class='status'>
+    <view>预约时间:　{{orderinfo.create_time}}</view>
+    <view>
+      <text>订单状态:　<text style='color:{{orderinfo.color}}'>{{orderinfo.statustext}}</text></text>
+      <text wx:if="{{orderinfo.status !=1}}">{{orderinfo.update_time}}</text>
+    </view>
+  </view>
+  <view class='tip'>商家信息</view>
+  <template is="fixed" data="{{fixedlist}}" />
+  <!-- 联系方式 -->
+  <view class='shop_contact'>
+    <view class='shop_contact_item' bindtap='tocall' data-tel='{{fixedlist[0].tel}}'>
+      <image src='/images/call.png'></image>{{fixedlist[0].tel}}</view>
+    <view class='shop_contact_item' bindtap='copy' data-wx='{{fixedlist[0].wx}}'>
+      <image src='/images/wx.png'></image>{{fixedlist[0].wx}}</view>
+  </view>
+  <view class='tip'>我的预约信息</view>
+  <view class='item'>
+    <label>联系　人</label>
+    <view>{{orderinfo.addressdetail.realname}}</view>
+  </view>
+  <view class='item'>
+    <label>联系电话</label>
+    <view bindtap='tocall' data-tel="{{orderinfo.addressdetail.tel}}">{{orderinfo.addressdetail.tel}}
+      <image mode='widthFix' style='margin-left: 30rpx;' src='/images/call.png'></image>
+    </view>
+  </view>
+  <view class='item'>
+    <label>服务地址</label>
+    <view bindtap='getlocation' style='color:#1296db;border-bottom:1rpx solid #1296db;font-size:30rpx'>
+      <image src='/images/b_address.png' mode='widthFix'></image>{{orderinfo.addressdetail.address}}{{orderinfo.addressdetail.name}}{{orderinfo.addressdetail.detail}}</view>
+
+  </view>
+  <view class='item'>
+    <label>需求描述</label>
+    <view>{{orderinfo.remark}}</view>
+  </view>
+</scroll-view>
+<view class='bottom'>
+  <view bindtap='option' wx:if="{{orderinfo.status == 1}}" style='background:red' data-status="5">取消预约</view>
+  <view bindtap='redirect' wx:if="{{orderinfo.status == 3}}" style='background:#009688' data-url="/pages/assess/assess?fid={{orderinfo.fid}}&oid={{orderinfo.id}}">评价服务</view>
+  <view wx:elif="{{orderinfo.status == 2}}">
+    <view bindtap='option' style='background:red' data-status="5">取消预约</view>
+    <view bindtap='option' style='background:green;margin-left:15rpx;' data-status="3">已服务</view>
+  </view>
+</view>

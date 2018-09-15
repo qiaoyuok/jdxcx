@@ -1,0 +1,76 @@
+<!--pages/apply/apply.wxml-->
+
+<view class='login_box' wx:if="{{!islogin}}">
+  <button class="login" open-type="getPhoneNumber" bindgetphonenumber="login">微信登录</button>
+</view>
+<view class='login_box' wx:elif="{{islogin && !statushidden}}" style='background:#fff;display: flex;flex-direction: column;'>
+  <view style='color:{{color}}'>{{statustext}}</view>
+  <view style="margin-top: 50rpx" wx:if="{{status!=1}}">
+    <button bindtap='redirect' data-url="./edit/edit" style="background: #5FB878;padding: 15rpx 50rpx;color: #fff;font-size: 34rpx;">查看申请信息</button>
+  </view>
+</view>
+<view class='container' wx:if="{{islogin}}">
+  <view class='pics-box'>
+    <view class='pics-item'>
+      <image bindtap='chooseimg' data-img='yyzz' src='{{yyzz}}'></image>
+      <view>
+        <text>*</text>营业执照</view>
+    </view>
+    <view class='pics-item'>
+      <image bindtap='chooseimg' data-img='idf' src='{{idf}}'></image>
+      <view>
+        <text>*</text>门头图片</view>
+    </view>
+    <view class='pics-item'>
+      <image bindtap='chooseimg' data-img='idz' src='{{idz}}'></image>
+      <view>身份证正面</view>
+    </view>
+  </view>
+
+  <view class='userinfo'>
+    <form bindsubmit='formSubmit'>
+      <view class='item'>
+        <label>
+          <text>*</text>姓名</label>
+        <input type='text' name="realname" placeholder='真实姓名'></input>
+        <input type='text' name="yyzz" hidden='hidden' value='{{yyzzr}}'></input>
+        <input type='text' name="idz" hidden='hidden' value='{{idzr}}'></input>
+        <input type='text' name="idf" hidden='hidden' value='{{idfr}}'></input>
+        <input type='text' name="latitude" hidden='hidden' value='{{latitude}}'></input>
+        <input type='text' name="longitude" hidden='hidden' value='{{longitude}}'></input>
+      </view>
+      <view class='item'>
+        <label>
+          <text>*</text>手机</label>
+        <input type='text' placeholder='常用手机号' name="tel"></input>
+      </view>
+      <view class='item'>
+        <label>微信</label>
+        <input type='text' placeholder='常用微信号' name="wx"></input>
+      </view>
+      <view class='item'>
+        <label>
+          <text>*</text>店名</label>
+        <input type='text' name="shopname" placeholder='店名'></input>
+      </view>
+      <view class='item' style='min-height:180rpx;'>
+        <label>
+          <text>*</text>地址</label>
+        <view class='address-item'>
+          <view class='choose-address' bindtap='chooseadd'>
+            <view class='image'>
+              <image src='/images/address.png'></image>
+            </view>
+            <input class='detail-address' name="name" disabled="true" value='{{name}}' />
+            <view class='image'>
+              <image src='/images/right.png'></image>
+            </view>
+          </view>
+          <input name="detail" class='detail' placeholder="详细地址,小区,门牌号" />
+          <input name="address" hidden='hidden' value="{{address}}" />
+        </view>
+      </view>
+      <button class='' formType="submit">提交</button>
+    </form>
+  </view>
+</view>

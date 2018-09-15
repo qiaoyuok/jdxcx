@@ -1,0 +1,43 @@
+/* pages/about/about.wxss */
+.logo{
+  width: 100%;
+  /* height: 300rpx; */
+  /* background: #ddd; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo image{
+  width: 200rpx;
+  margin-bottom: 20rpx;
+}
+.list{
+  width: 100%;
+  height: 300rpx;
+  margin-top: 150rpx;
+  /* background: #ddd; */
+  border-top: 1rpx solid #eee;
+}
+.list .item{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+}
+.list .item view{
+  /* background: red; */
+  min-width: 220rpx;
+}
+.list .item text{
+  /* font-size: 33rpx; */
+  color: #515151;
+}
+.version{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 50rpx;
+  color: #515151;
+}

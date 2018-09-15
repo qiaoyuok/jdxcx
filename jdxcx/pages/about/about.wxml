@@ -1,0 +1,19 @@
+<!--pages/about/about.wxml-->
+<view class='logo'>
+  <image mode='widthFix' src='/images/call.png'></image>
+  <text>家政服务平台</text>
+</view>
+<view class='list'>
+  <view class='item'>
+    <view>服务电话</view>
+    <text>17678328512</text>
+  </view>
+  <view class='item'>
+    <view>服务微信</view>
+    <text>yhqqtop</text>
+  </view>
+  <view class='item' bindtap='clearstorage'>
+    <view>清除缓存</view>
+  </view>
+</view>
+<view class='version'>版本：1.0.0</view>

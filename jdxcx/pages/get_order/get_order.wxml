@@ -1,0 +1,27 @@
+<!--pages/my_order/my_order.wxml-->
+<import src='../template/template.wxml' />
+
+<view class='tab_nav'>
+  <view bindtap='change' data-mark="1" class='{{mark == 1?"active":""}}'>新订单</view>
+  <view bindtap='change' data-mark="2" class='{{mark == 2?"active":""}}'>待服务</view>
+  <view bindtap='change' data-mark="4" class='{{mark == 4?"active":""}}'>已完成</view>
+  <view bindtap='change' data-mark="5" class='{{mark == 5?"active":""}}'>已取消</view>
+  <view bindtap='change' data-mark="0" class='{{mark == 0?"active":""}}'>全部</view>
+</view>
+
+<view class='box'>
+  <block wx:for="{{fixedorderlist}}" wx:key="i">
+    <view class='item' bindtap='redirect' data-url="./order_detail?id={{item.id}}">
+    <view class='shopinfo'>
+      <view class='shopname'>{{item.remark}}</view>
+      <view class='status' style='color:{{item.color}}'>{{item.statustext}}</view>
+    </view>
+    <view class='time'><text>{{item.create_time}}</text></view>
+    <view class='des'>{{item.addressdetail.address}}{{item.addressdetail.name}}{{item.addressdetail.detail}}</view>
+  </view>
+  </block>
+</view>
+<template is="load" data="{{hideload}}" />
+<template is="notice" data="{{hiddennotice}}" />
+<template is="loadmore" data="{{ishidden}}" />
+<template is="nomore"data="{{nomore}}"/>

@@ -1,0 +1,238 @@
+<include file="Public/base" />
+<style type="text/css">
+table tr td.skin {
+    background-color: #f2f2f2;
+}
+
+.notice {
+    padding: 10px 0;
+}
+
+.canvas {
+    width: 100%;
+    height: 300px;
+    background: #eee;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.canvas .canvas-item {
+    width: 25%;
+    height: 150px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.param {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.param-item {
+    width: 18%;
+    margin-right: 7%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.param-item span {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+.title{
+    font-size: 16px !important;
+    font-weight: bolder;
+    color: #01AAED;
+}
+</style>
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <h3 class="notice">GNSS：异常　　ACC：-　　最后采集时间：2018-5-28 15:35:50　　最后位置：直辖市上海市松江区九泾路.三维工业园(西南89米)</h3>
+        <div class="canvas">
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+            <div class="canvas-item"></div>
+        </div>
+    </div>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">运行参数</legend>
+        <div class="param">
+            <div class="param-item"><span>总工作小时数：</span>
+                <button class="layui-btn layui-btn-xs">10.1h</button>
+            </div>
+            <div class="param-item"><span>车辆电压：</span>
+                <button class="layui-btn layui-btn-xs">36v</button>
+            </div>
+            <div class="param-item"><span>拨盘档位：</span>
+                <button class="layui-btn layui-btn-xs">1档</button>
+            </div>
+            <div class="param-item"><span>比例阀电流：</span>
+                <button class="layui-btn layui-btn-xs">1mA</button>
+            </div>
+            <div class="param-item"><span>工作模式：</span>
+                <button class="layui-btn layui-btn-xs">10.1h</button>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">报警状态</legend>
+        <div class="param">
+            <div class="param-item"><span>发动机水温报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>发动机水温传感器开路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>发动机水温传感器短路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>燃油液位报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>燃油液位传感器开路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>燃油液位传感器短路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>液压油温报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>液压油温传感器开路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>液压油温传感器短路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>机油压力报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>机油压力传感器开路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>机油压力传感器短路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>发电机充电报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>空气滤清器报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>液压油滤报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>先导油滤报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>油水分离报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>先导压力低报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>进气管高温报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>燃油高温报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>燃油品质差报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>先导阀堵塞报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>冷却液低位报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>液压油低位报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>与发动机控制器通讯失败报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>水温报警开关：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>机油温度报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>机油滤清报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">工作状态</legend>
+        <div class="param">
+            <div class="param-item"><span>仪表执行一级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>仪表执行二级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>仪表执行三级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>长期无GSM信号锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>GNSS定位天线断路锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>永久解锁：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">保养信息</legend>
+        <div class="param">
+            <div class="param-item"><span>1000小时待保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>2000小时待保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>8小时已保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>250小时已保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>500小时已保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>1000小时已保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>2000小时已保养：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">GNSS状态</legend>
+        <div class="param">
+            <div class="param-item"><span>主电休眠：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>来电(ACC ON)：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>定位：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>备电休眠：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>永久解锁：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">GNSS报警</legend>
+        <div class="param">
+            <div class="param-item"><span>主电源断电报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>开盖状态：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>备用电池欠压报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>主电源欠压报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>GNSS天线开路：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>总线故障报警：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>一级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>二级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+            <div class="param-item"><span>三级锁车：</span><i class="layui-icon" style="color: green;font-size: 24px;">&#xe643;</i></div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">GNSS参数</legend>
+        <div class="param">
+            <div class="param-item"><span>acc on总累计时间：</span>
+                <button class="layui-btn layui-btn-xs">4 小时</button>
+            </div>
+            <div class="param-item"><span>当次acc on累计时间：</span>
+                <button class="layui-btn layui-btn-xs">0 分钟</button>
+            </div>
+            <div class="param-item"><span>终端总通电时间：</span>
+                <button class="layui-btn layui-btn-xs">5 小时</button>
+            </div>
+            <div class="param-item"><span>主电源电压：</span>
+                <button class="layui-btn layui-btn-xs">24.28 V</button>
+            </div>
+            <div class="param-item"><span>备用电池电压：</span>
+                <button class="layui-btn layui-btn-xs">1</button>
+            </div>
+            <div class="param-item"><span>终端内部温度：</span>
+                <button class="layui-btn layui-btn-xs">0 ℃</button>
+            </div>
+            <div class="param-item"><span>GSM信号强度：</span>
+                <button class="layui-btn layui-btn-xs">20</button>
+            </div>
+            <div class="param-item"><span>卫星定位颗数：</span>
+                <button class="layui-btn layui-btn-xs">1</button>
+            </div>
+            <div class="param-item"><span>开盖次数：</span>
+                <button class="layui-btn layui-btn-xs">1</button>
+            </div>
+            <div class="param-item"><span>拔GNSS天线次数：</span>
+                <button class="layui-btn layui-btn-xs">1</button>
+            </div>
+            <div class="param-item"><span>拔SIM卡次数：</span>
+                <button class="layui-btn layui-btn-xs">1</button>
+            </div>
+            <div class="param-item"><span>基站：</span>
+                <button class="layui-btn layui-btn-xs">1842,8C70</button>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend class="title">总线数据</legend>
+        <div class="param layui-form">
+            <div class="param-item data">
+                <div>00 2C FF 00 0A 01 00 00 0B 02 00 00 00 0C 02 00 00 00 19 01 00 00 1A 01 00 00 1D 02 00 00 00 1E 02 00 00 00 1F 01 00 00 09 04 00 00 00 65</div>
+                <div class="layui-form-item">
+                <label class="layui-form-label" style="width: 100px;">每行显示字节数</label>
+                <div class="layui-input-inline" style="width: 90px;">
+                    <select name="city" lay-verify="required">
+                        <option value="0">4字节</option>
+                        <option value="1">8字节</option>
+                        <option value="2">16字节</option>
+                        <option value="3">32字节</option>
+                        <option value="4">64字节</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </div>
+    </fieldset>
+</body>
+
+</html>

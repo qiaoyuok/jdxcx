@@ -1,0 +1,29 @@
+<include file="Public/base" />
+
+<body>
+    <div class="x-body layui-anim layui-anim-up" style="padding-top: 5px;position:relative;">
+        <h1 style="color: red;">设备信息中心　<span style="color: blue;font-size: 16px;">当前设备：V-CU-A-ZD</span><a class="layui-btn" style="float: right;" href="{:U('index')}">返回</a></h1>
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="position: fixed;top: 30;background: #fff;">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><a href="{:U(deviceinfo)}" target='frame'>设备资料</a></li>
+                <li><a href="{:U(workstatus)}" target='frame'>实时工况</a></li>
+                <li><a href="{:U(historystatus)}" target='frame'>历史工况</a></li>
+                <li><a href="{:U(location)}" target='frame'>定位跟踪</a></li>
+                <li><a href="{:U(historytrack)}" target='frame'>历史轨迹</a></li>
+                <li><a href="{:U(gnssparam)}" target='frame'>GNSS参数</a></li>
+                <li><a href="{:U(remotecontrol)}" target='frame'>远程控制</a></li>
+                <li><a href="{:U(dayworkcount)}" target='frame'>日工时统计</a></li>
+                <li><a href="{:U(monthworkcount)}" target='frame'>月工时统计</a></li>
+                <li><a href="{:U(dayoilcount)}" target='frame'>日油耗统计</a></li>
+                <li><a href="{:U(monthoilcount)}" target='frame'>月油耗统计</a></li>
+<!--                 <li><a href="{:U(workstatus)}" target='frame'>运距统计</a></li>
+                <li><a href="{:U(workstatus)}" target='frame'>停车等待统计</a></li>
+                <li><a href="{:U(workstatus)}" target='frame'>运输趟数统计</a></li> -->
+            </ul>
+        </div>
+
+        <iframe src="{:U(deviceinfo)}" name="frame" frameBorder="0" style="width: 100%;height: 80vh;overflow: scroll;margin-top: 50px;"></iframe>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!--pages/recovery/recovery.wxml-->
+<import src='../template/template.wxml' />
+<template is="option" data="{{tophidden}}" />
+<!-- 搜索 -->
+<template is="search" data="{{curarea}}"/>
+<!-- <view class='tab_box'>
+  <view class='{{mark == 1?"active":""}}' bindtap='change' data-mark="1">服务站点</view>
+  <view class='{{mark == 2?"active":""}}' bindtap='change' data-mark="2">附近商圈</view>
+</view> -->
+<view class='box'>
+  <template wx:if="{{mark == 1}}" is="recovery" data="{{list}}" />
+  <template wx:else is="recovery-self" />
+  <template is="loadmore" data="{{ishidden}}" />
+  <template is="nomore" data="{{nomore}}" />
+  <template is="notice" data="{{hiddennotice}}" />
+  <template is="load" data="{{hideload}}" />
+</view>

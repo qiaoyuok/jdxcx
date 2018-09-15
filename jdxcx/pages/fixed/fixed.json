@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "list-html": "/component/wx-index-list/wx-index-list"
+  },
+  "navigationBarTitleText": "维修服务",
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance": -50,
+  "navigationBarBackgroundColor": "#d4237a",
+  "navigationBarTextStyle": "white"
+}

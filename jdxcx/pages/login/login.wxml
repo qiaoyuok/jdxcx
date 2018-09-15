@@ -1,0 +1,2 @@
+<!--pages/login/login.wxml-->
+<button class="login" open-type="getPhoneNumber" bindgetphonenumber="login">微信登录</button>

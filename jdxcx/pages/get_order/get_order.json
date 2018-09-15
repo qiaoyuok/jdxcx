@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我收到的订单",
+  "enablePullDownRefresh": true,
+  "onReachBottom": true,
+  "onReachBottomDistance": -50
+}

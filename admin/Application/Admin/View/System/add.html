@@ -1,0 +1,113 @@
+<include file="Public/base" />
+
+<body>
+    <div class="x-body layui-anim layui-anim-up">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>上级菜单
+                </label>
+                <div class="layui-input-inline">
+                    <select name="pid">
+                        <option value="0">顶级菜单</option>
+                        <notempty name="list">
+                            <volist name="list" id="vo">
+                                <notempty name="vo.checked">
+                                    <option value="{$vo.id}" selected="selected">{$vo.html}{$vo.name}</option>
+                                    <else/>
+                                    <option value="{$vo.id}">{$vo.html}{$vo.name}</option>
+                                </notempty>
+                            </volist>
+                        </notempty>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">
+                    <span class="x-red">*</span>菜单名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="name" required="" lay-verify="name" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                    <span class="x-red">*</span>菜单地址
+                </label>
+                <div class="layui-input-inline">
+                    <input type="url" id="url" name="url" required="" lay-verify="url" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    控制器/方法（如：Index/index）
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                    图标
+                </label>
+                <div class="layui-input-inline">
+                    <input type="url" id="icon" name="icon" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    layui通用图标（如：& #xe67b;）
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_pass" class="layui-form-label">
+                    排序
+                </label>
+                <div class="layui-input-inline">
+                    <input type="sort" id="sort" name="sort" required="" lay-verify="sort" autocomplete="off" class="layui-input" value="0">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    按数字从高到低排序
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    确定
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+    layui.use(['form', 'layer'], function() {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+        //自定义验证规则
+        form.verify({
+            name: function(value) {
+                if (value.length < 2 || value.length > 8) {
+                    return '菜单名称在2-8个字符之间';
+                }
+            },
+            url: [/\S+\/\S+$/, 'url格式不对'],
+            sort: [/[0-9]+$/, '序号必须是数字'],
+        });
+
+        //监听提交
+        form.on('submit(add)', function(data) {
+            console.log(data);
+            //发异步，把数据提交给php
+            $.post("{:U('add')}", data.field, function(res) {
+                showmsg(res)
+                setTimeout(() => {
+                  // 获得frame索引
+                  var index = parent.layer.getFrameIndex(window.name);
+                  //关闭当前frame
+                  parent.layer.close(index);
+                },2000)
+            })
+            return false;
+        });
+
+
+    });
+    </script>
+</body>
+
+</html>

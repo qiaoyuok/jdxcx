@@ -1,0 +1,19 @@
+<view class='container'>
+  <view class='address' bindtap='redirect' data-url="/pages/my_address/my_address?isback=true">
+    <image src='/images/address.png' mode='widthFix'></image>
+    <view class='addressdetail'>
+      <view>{{tmpaddress}}</view>
+      <text wx:if="{{realname}}">{{realname}}　{{tel}}</text>
+    </view>
+    <image src='/images/right.png' mode='widthFix'></image>
+
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class='item'>
+      <textarea placeholder="输入你要维修的内容或问题细节描述 140字以内" name="remark" style='height:160rpx;' />
+    </view>
+    <view class="btn-area">
+      <button formType="submit">提交</button>
+    </view>
+  </form>
+</view>

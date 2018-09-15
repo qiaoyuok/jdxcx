@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/recovery/recovery",
+    "pages/my_publish/my_publish",
+    "pages/my_publish/edit_recovery/edit_recovery",
+    "pages/fixed_detail/fixed_detail",
+    "pages/recovery_detail/recovery_detail",
+    "pages/my_publish/add_recovery/add_recovery",
+    "pages/my_collect/my_collect",
+    "pages/get_order/get_order",
+    "pages/fixed/fixed",
+    "pages/template/template",
+    "pages/apply/edit/edit",
+    "pages/apply/apply",
+    "pages/my/edit/edit",
+    "pages/my_publish/edit_fixed/edit_fixed",
+    "pages/my_order/my_order",
+    "pages/assess/assess",
+    "pages/my_order/order_detail",
+    "pages/get_order/order_detail",
+    "pages/fixed_detail/order",
+    "pages/my_address/my_address",
+    "pages/my_address/add",
+    "pages/my_publish/add_fixed/add_fixed",
+    "pages/login/login",
+    "pages/about/about",
+    "pages/recovery_sail/recovery_sail",
+    "pages/logs/logs",
+    "pages/source/source",
+    "pages/user/user",
+    "pages/source_detail/source_detail",
+    "pages/my_address/edit"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "维修服务中心",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#d4237a",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/s_home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/apply/apply",
+        "iconPath": "images/apply.png",
+        "selectedIconPath": "images/s_apply.png",
+        "text": "入驻申请"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/s_my.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

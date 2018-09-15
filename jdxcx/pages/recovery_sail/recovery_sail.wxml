@@ -1,0 +1,43 @@
+<!--pages/recovery_sail/recovery_sail.wxml-->
+<scroll-view scroll-y="true" style='height:{{height}}rpx'>
+  <view class='name'>大量工厂机械出售</view>
+  <view class='time'>发布：2018.7.13 12:52:22</view>
+  <view class='item'>
+    <label>产品名称</label>
+    <view>车床</view>
+  </view>
+  <view class='item'>
+    <label>产品数量</label>
+    <view>100</view>
+  </view>
+  <view class='item'>
+    <label>期望价格</label>
+    <view>100￥</view>
+  </view>
+  <view class='item'>
+    <label>所在地址</label>
+    <view>浙江省杭州市江干区下沙街道</view>
+  </view>
+  <view class='item'>
+    <label>产品介绍</label>
+    <view>最近在学习微信小程序并把之前的公司app搬到小程序上，挑一些实现效果记录一下（主要是官方文档里没说的，毕竟官方文档只是介绍功能）最近在学习微信小程序并把之前的公司app搬到小程序上，挑一些实现效果记录一下（主要是官方文档里没说的，毕竟官方文档只是介绍功能）最近在学习微信小程序并把之前的公司app搬到小程序上，挑一些实现效果记录一下（主要是官方文档里没说的，毕竟官方文档只是介绍功能）</view>
+  </view>
+  <view class='image'>
+    <image mode="widthFix" src='http://p1.ifengimg.com/a/2018_28/113079d80c48fe8.jpg'></image>
+    <image mode="widthFix" src='http://p1.ifengimg.com/a/2018_28/113079d80c48fe8.jpg'></image>
+    <image mode="widthFix" src='http://p1.ifengimg.com/a/2018_28/113079d80c48fe8.jpg'></image>
+  </view>
+</scroll-view>
+<view class='bottom'>
+  <view class='item'>
+    <image src='/images/sc_0.png'></image>
+    <text>收藏</text>
+  </view>
+  <view class='item'>
+    <text class='call'>联系卖家</text>
+  </view>
+  <view class='item'>
+    <image src='/images/s_0.png'></image>
+    <text>分享</text>
+  </view>
+</view>

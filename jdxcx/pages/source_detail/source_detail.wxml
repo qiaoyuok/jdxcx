@@ -1,0 +1,40 @@
+<!--pages/source_detail/source_detail.wxml-->
+<scroll-view scroll-y="true" style="height:{{height}}rpx">
+  <view class='header'>
+    <view class='name'>总票房 - 电影票房排行榜 - 电影票房数据库</view>
+    <view class='price'>
+      <view>
+        <label>￥</label>
+        <text>1600</text>
+      </view>
+      <text>浏览99</text>
+    </view>
+    <view class='address'>浙江杭州江干区下沙街道
+      <image src='/images/right.png'></image>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='tip'>货品详情</view>
+    <view class='des'>
+      计算器是现代人发明的可以进行数字运算的电子机器。现代的电子计算器能进行数学运算的手持电子机器，拥有集成电路芯片，但结构比电脑简单得多，可以说是第一代的电子计算机（电脑），且功能也较弱，但较为方便与廉价，可广泛运用于商业交易...
+    </view>
+    <view class='image'>
+
+      <image mode="widthFix" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531630651204&di=7971b4b923ef40aed9668cd4241711df&imgtype=0&src=http%3A%2F%2Fztd00.photos.bdimg.com%2Fztd%2Fw%3D700%3Bq%3D50%2Fsign%3De7ebd10418dfa9ecfd2e541752eb863e%2F0823dd54564e9258c43135f69582d158ccbf4ea4.jpg'></image>
+      <image mode="widthFix" src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531630651205&di=19fb53ab05ecb7c71461a77da043c171&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F225a5f3f75d1d4c59532704782eebd25d323fd801e57a-VlY5c4_fw658'></image>
+    </view>
+  </view>
+</scroll-view>
+<view class='bottom'>
+  <view class='item'>
+    <image src='/images/sc_0.png'></image>
+    <text>收藏</text>
+  </view>
+  <view class='item'>
+    <text class='call'>联系商家</text>
+  </view>
+  <view class='item'>
+    <image src='/images/s_0.png'></image>
+    <text>分享</text>
+  </view>
+</view>

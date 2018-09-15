@@ -1,0 +1,55 @@
+<?php
+return array(
+	//'配置项'=>'配置值'
+	'DB_TYPE'   => 'mysqli', // 数据库类型
+    'DB_HOST'   => '127.0.0.1', // 服务器地址
+    'DB_NAME'   => 'jdxcx', // 数据库名
+    'DB_USER'   => 'root', // 用户名
+    'DB_PWD'    => 'qiaoyuok512',  // 密码
+    'DB_PORT'   => '3306', // 端口
+    'DB_PREFIX' => 'jd_', // 数据库表前缀
+    "ADMINISTRATOR"	=>1,
+    'URL_MODEL'=>2,
+    'URL_ROUTER_ON' => true,
+    'URL_ROUTE_RULES'=>array(
+        'wahaha' => 'Index/index',
+        'userlogin' => 'loginapi/login',
+    	'upload'=> 'Upload/upload',
+        'addshop'=>"Api/addshop",
+        'getshopinfo'=>"Api/getshopinfo",
+        'getuserinfo'=>"Api/getuserinfo",
+        'addfixed'=>"Api/addFixed",
+        'getMyPublishList'=>"Api/getMyPublishList",
+        'getcollectstatus'=>"Api/getCollectStatus", //获取收藏状态
+        'collectoption'=>"Api/collectOption", //收藏状态变更
+        'getfixeddetail'=>"Apicom/getFixedDetail",
+        'getfixedlist'=>"Apicom/getFixedList",
+        'getserv'=>"Apicom/getServ",
+        'addaddress'=>"Api/addAddress", //添加地址
+        'getaddresslist'=>"Api/getAddressList", //获取列表地址
+        'deladdress'=>"Api/deladdress", //获取列表地址
+        'getaddressdetail'=>"Api/getAddressDetail", //获取地址详情
+        'editaddress'=>"Api/editAddress", //编辑地址
+        'chooseaddress'=>"Api/chooseAddress", //设定默认地址
+        'getDefaultAddressDetail'=>"Api/getDefaultAddressDetail", //获取默认地址
+        'addFixedOrder'=>"Api/addFixedOrder", //获取默认地址
+        'getMyOrderList'=>"Api/getMyOrderList", //获取我的预约列表
+        'getOrderDetail'=>"Api/getOrderDetail", //获取我的预约详情
+        'changeOrderStatus'=>"Api/changeOrderStatus", //获取我的预约详情
+        'fixedAssess'=>"Api/fixedAssess", //评价预约订单
+        'getAssessList'=>"Apicom/getAssessList", //获取评价列表
+        'getShopOrderList'=>"Api/getShopOrderList", //获取商家订单管理列表
+        'getCollectList'=>"Api/getCollectList", //获取商家订单管理列表
+        'getEditFixedDetail'=>"Api/getEditFixedDetail", //获取编辑维修服务的详情
+        'editFixed'=>"Api/editFixed", //获取编辑维修服务的详情
+        'editUserinfo'=>"Api/editUserinfo", //编辑用户信息
+        'editShop'=>"Api/editShop", //编辑维修服务
+        'addRecovery'=>"Api/addRecovery", //添加废品回收
+        'getRecoveryDetail'=>"Apicom/getRecoveryDetail", //获取废品回收详情
+        'getRecoveryList'=>"Apicom/getRecoveryList", //获取回收服务列表
+        'editRecovery'=>"Api/editRecovery", //编辑废品回收信息
+        'delPublish'=>"Api/delPublish", //删除发布的服务
+        'upPublish'=>"Api/upPublish", //上架发布的服务
+        'downPublish'=>"Api/downPublish", //下架发布的服务
+    ),
+);

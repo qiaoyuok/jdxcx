@@ -1,0 +1,53 @@
+<!--pages/my_publish/add_fixed/add_fixed.wxml-->
+
+<form bindsubmit="formSubmit">
+
+  <view class='formbox'>
+    <view class='item'>
+      <label>
+        <text>*</text>姓名</label>
+      <input type="text" name="realname" value="{{recoverydetail.realname}}"></input>
+    </view>
+    <view class='item'>
+      <label>
+        <text>*</text>手机</label>
+      <input type="text" name="tel" value="{{recoverydetail.tel}}"></input>
+    </view>
+    <view class='item'>
+      <label>
+        微信</label>
+      <input type="text" name="wx" value="{{recoverydetail.wx}}"></input>
+    </view>
+    <view class='item'>
+      <label>
+        <text>*</text>地址</label>
+      <view class='choaddress'>
+        <view class='picker' bindtap='chooseadd'>
+          <input type="text" name="address" hidden="true" value="{{address}}"></input>
+          <input type="text" name="name" disabled='true' value="{{name}}"></input>
+          <image src='/images/right.png' style='width:50rpx;height:50rpx;'></image>
+        </view>
+        <input name="detail" placeholder='详细地址：小区，门牌号' value="{{recoverydetail.detail}}"></input>
+      </view>
+    </view>
+    <view class='des'>
+      <textarea name="des" maxlength="-1" placeholder="在这里描述你所回收的物品种类及介绍您的服务，描述的越详细，客户会越多哦" value="{{recoverydetail.des}}"></textarea>
+    </view>
+    <view class='addbox'>
+      <image bindtap='chooseimg' mode='widthFix' src='/images/addpic.png'></image>
+      <text>添加图片</text>
+      <text style='color:#d4237a;font-size:26rpx;'>(建议上传横图,可以是名片,门店图片)</text>
+    </view>
+    <scroll-view class='box' hidden='{{ishidden}}' style="width:100%" scroll-x="true">
+      <block wx:for="{{imglist}}" wx:key="i" wx:for-index="k">
+        <view class='pic_item' wx:if="{{item}}">
+          <view class='position'>
+            <image src='{{item}}'></image>
+            <text bindtap='del' data-id="{{k}}">删除</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <button formType="submit" class='but'>提交</button>
+  </view>
+</form>
